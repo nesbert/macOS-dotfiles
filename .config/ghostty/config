@@ -1,0 +1,53 @@
+################################################################################
+# macOS-dotfiles ⭐️⭐️⭐️⭐️⭐️
+################################################################################
+
+################################################################################
+# Appearance
+################################################################################
+background-opacity = 0.66
+background-blur = 90
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+macos-titlebar-style = transparent
+theme = Nord
+
+################################################################################
+# Window
+################################################################################
+window-height = 30
+window-width = 100
+window-padding-x = 8
+window-padding-y = 8
+window-padding-balance = true
+
+window-colorspace = "display-p3"
+window-save-state = always
+
+################################################################################
+# Shaders
+################################################################################
+
+# https://github.com/0xhckr/ghostty-shaders
+# custom-shader = shaders-0xhckr/bloom.glsl
+# custom-shader = shaders-0xhckr/cursor_blaze.glsl
+
+# https://github.com/KroneCorylus/ghostty-shader-playground/tree/main/public/shaders
+custom-shader = shaders-KroneCorylus/cursor_blaze_tapered.glsl
+
+# custom-shader = shaders-KroneCorylus/debug_cursor_animated.glsl
+# https://github.com/linkarzu/dotfiles-latest/tree/main/ghostty/shaders
+custom-shader = shaders-linkarzu/bloom025.glsl
+# custom-shader = shaders-linkarzu/cursor_blaze_no_trail.glsl
+custom-shader = shaders-linkarzu/cursor_smear.glsl
+
+################################################################################
+# Misc
+################################################################################
+
+# adjust-cell-height = 100%
+copy-on-select = clipboard
+# maximize = true
+mouse-scroll-multiplier = 2

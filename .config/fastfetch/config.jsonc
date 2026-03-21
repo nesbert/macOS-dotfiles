@@ -1,0 +1,164 @@
+////////////////////////////////////////////////////////////////////////////////
+// macOS-dotfiles ⭐️⭐️⭐️⭐️⭐️
+////////////////////////////////////////////////////////////////////////////////
+// This the configuration file for fastfetch, see the official documentation:
+// https://github.com/fastfetch-cli/fastfetch
+//
+// Credit for this configuration goes to the original author:
+// https://github.com/waytoabv/Dotfiles/blob/main/.config/fastfetch/config.jsonc
+////////////////////////////////////////////////////////////////////////////////
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "macos",
+    "padding": {
+      "top": 4,
+      "right": 5,
+      "left": 3,
+    },
+  },
+  "display": {
+    "separator": " ",
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─────────────Hardware─────────────┐",
+      "outputColor": "green",
+    },
+    {
+      "type": "host",
+      "key": " PC ",
+      "keyColor": "red",
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├ ",
+      "keyColor": "red",
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├󰒆 ",
+      "keyColor": "red",
+    },
+    {
+      "type": "disk",
+      "key": "│ ├ ",
+      "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage})",
+      "keyColor": "red",
+    },
+    {
+      "type": "swap",
+      "key": "│ ├SW",
+      "keyColor": "red",
+    },
+    {
+      "type": "display",
+      "key": "│ ├ ",
+      "keyColor": "red",
+      "format": "MONITOR ({name})",
+      // "format": "MONITOR ({name}) {width}x{height} @ {refresh-rate} Hz - {physical-width}x{physical-height} mm ({inch} inches, {ppi} ppi)",
+    },
+    {
+      "type": "memory",
+      "key": "└ └󰍛 ",
+      "keyColor": "red",
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "green",
+    },
+    {
+      "type": "custom",
+      "format": "┌─────────────Software─────────────┐",
+      "outputColor": "green",
+    },
+    {
+      "type": "os",
+      "key": "􀣺 OS ",
+      "keyColor": "green",
+    },
+    {
+      "type": "kernel",
+      "key": "│ ├ ",
+      "keyColor": "green",
+    },
+    {
+      "type": "packages",
+      "key": "│ ├󰏖 ",
+      "keyColor": "green",
+    },
+    // {
+    //   "type": "command",
+    //   "key": "│ ├IP",
+    //   "keyColor": "green",
+    //   "command": "curl -s ifconfig.me",
+    // },
+    {
+      "type": "localip",
+      "key": "│ ├IP (local)",
+      "keyColor": "green",
+    },
+    {
+      "type": "shell",
+      "key": "└ └ ",
+      "keyColor": "green",
+    },
+    {
+      "type": "de",
+      "key": " DE ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "lm",
+      "key": "│ ├ ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "wm",
+      "key": "│ ├ ",
+      "keyColor": "blue",
+    },
+    {
+      "key": "│ ├ ",
+      "keyColor": "blue",
+      "type": "command",
+      "text": "pgrep yabai &> /dev/null && echo yabai || echo Quartz Compositor",
+    },
+    {
+      "type": "terminal",
+      "key": "│ ├ ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "terminalfont",
+      "key": "└ └ ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "green",
+    },
+    {
+      "type": "custom",
+      // "format": "┌───────────Uptime / Age───────────┐",
+      "format": "┌──────────────Uptime──────────────┐",
+      "outputColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": "  Uptime",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "green",
+    },
+  ],
+}
