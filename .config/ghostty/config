@@ -54,3 +54,13 @@ keybind = global:cmd+alt+grave_accent=toggle_quick_terminal
 quick-terminal-position = bottom
 # maximize = true
 mouse-scroll-multiplier = 2
+
+# Ghostty lacks support for keybindings, reminder:
+#
+# Option + ← / →   # jump words
+# Ctrl + A         # start of line
+# Ctrl + E         # end of line
+# Ctrl + W         # delete word
+# Ctrl + U         # delete to start
+# Ctrl + K         # delete to end
+
