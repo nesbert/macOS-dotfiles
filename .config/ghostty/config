@@ -17,8 +17,8 @@ theme = Nord
 ################################################################################
 # Window
 ################################################################################
-window-height = 30
-window-width = 100
+window-height = 36
+window-width = 125
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
@@ -50,7 +50,7 @@ custom-shader = shaders-linkarzu/cursor_smear.glsl
 # adjust-cell-height = 100%
 copy-on-select = clipboard
 # https://dbushell.com/2025/04/11/ghostty-macos-quick-terminal/
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = global:cmd+alt+grave_accent=toggle_quick_terminal
 quick-terminal-position = bottom
 # maximize = true
 mouse-scroll-multiplier = 2

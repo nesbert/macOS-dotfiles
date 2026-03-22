@@ -9,11 +9,13 @@ export PATH="$HOMEBREW/bin:$HOMEBREW/sbin:$PATH"
 # ZSH Plug-ins
 ################################################################################
 
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
-source "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh"
+if [[ -o interactive && "${TERM:-}" != dumb ]]; then
+  [[ -f "$HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$HOMEBREW/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  [[ -f "$HOMEBREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ]] && source "$HOMEBREW/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+  [[ -f "$HOMEBREW/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]] && source "$HOMEBREW/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+  [[ -f "$HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]] && source "$HOMEBREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  [[ -f "$HOMEBREW/share/zsh-you-should-use/you-should-use.plugin.zsh" ]] && source "$HOMEBREW/share/zsh-you-should-use/you-should-use.plugin.zsh"
+fi
 
 ################################################################################
 # GNU Shell Overrides
@@ -44,7 +46,7 @@ alias my-ip="curl ifconfig.io"
 alias my-weather="curl wttr.in/Las+Vegas,+NV+89138"
 
 alias ..='cd ..'
-alias ...='cd .. ; cd ..'
+alias ...='cd ../..'
 alias ll='gls --l --color -halFG'
 
 alias df='df -lh'
@@ -52,7 +54,7 @@ alias du='du -h'
 alias space='df'
 
 alias edit='code '
-alias now='echo `date`'
+alias now='date'
 alias x='clear'
 alias h='history'
 alias ping='ping -c 3'
@@ -76,7 +78,7 @@ alias clean-python="rm -rf .pytest_cache dist htmlcov venv; \
 ################################################################################
 
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+command -v jenv >/dev/null && eval "$(jenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$HOMEBREW/opt/nvm/nvm.sh" ] && \. "$HOMEBREW/opt/nvm/nvm.sh"  # This loads nvm
@@ -84,14 +86,28 @@ export NVM_DIR="$HOME/.nvm"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+command -v pyenv >/dev/null && eval "$(pyenv init -)"
+
+################################################################################
+# Functions
+################################################################################
+
+# Get the weather for the current location
+my-weather-here() {
+  local coords
+
+  coords=$(curl -s ipinfo.io/loc)
+  curl "wttr.in/${coords}"
+}
 
 ################################################################################
 # Misc
 ################################################################################
 
-# Start-up Information
-fastfetch
-
-# Starship
-eval "$(starship init zsh)"
+if [[ -o interactive && "${TERM:-}" != dumb ]]; then
+  # Start-up Information
+  command -v fastfetch >/dev/null && fastfetch
+  # Initialize Starship and fzf
+  command -v starship >/dev/null && eval "$(starship init zsh)"
+  command -v fzf >/dev/null && [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+fi
