@@ -25,13 +25,20 @@ As this repo grows, it will likely follow a layout similar to:
 
 ```text
 .
+├── .gitconfig
 ├── .config/
 │   ├── fastfetch/
 │   │   └── config.jsonc
 │   ├── ghostty/
 │   │   └── config
+│   ├── git/
+│   │   ├── config
+│   │   ├── personal
+│   │   └── work
 │   └── starship/
 │       └── starship.toml
+├── .ssh/
+│   └── config
 └── .zshrc
 ```
 
@@ -42,6 +49,27 @@ The intended workflow is:
 1. Use [macOS-setup](https://github.com/nesbert/macOS-setup/) to prepare a machine with the required tools and packages.
 2. Pull this repository to apply terminal, shell, prompt, and related app configuration.
 3. Optionally wire this repo into `macOS-setup` as a submodule so setup and configuration stay versioned independently.
+
+## Included Templates
+
+This repo now includes portable templates for:
+
+- `.ssh/config`
+- `.gitconfig`
+- `.config/git/config`
+- `.config/git/work`
+- `.config/git/personal`
+
+The SSH config uses explicit host aliases so work and personal GitHub accounts do not fight over the same `github.com` host:
+
+- `github-work`
+- `github-personal`
+
+The top-level `.gitconfig` acts as a small entrypoint that includes `.config/git/config`.
+
+The Git config uses `includeIf` rules to apply a different identity based on the directory a repository lives in.
+
+For portability, the email lines in the Git config files are commented out. Uncomment them and replace the placeholder values for your own machine.
 
 ## Notes
 

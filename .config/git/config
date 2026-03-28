@@ -1,0 +1,15 @@
+[user]
+  name = Monkey D. Luffy
+  email = your-personal-email@example.com
+
+[includeIf "gitdir:~/Code/github.com/StrawHatPirates/"]
+  path = ~/.config/git/work
+
+[includeIf "gitdir:~/Code/github.com/nesbert/"]
+  path = ~/.config/git/personal
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
