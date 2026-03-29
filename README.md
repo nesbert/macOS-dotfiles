@@ -69,7 +69,19 @@ The top-level `.gitconfig` acts as a small entrypoint that includes `.config/git
 
 The Git config uses `includeIf` rules to apply a different identity based on the directory a repository lives in.
 
-For portability, the email lines in the Git config files are commented out. Uncomment them and replace the placeholder values for your own machine.
+For portability, the Git config files use placeholder names and email addresses. Replace them with your own values for your machine.
+
+One important detail: the `includeIf "gitdir:..."` rules should point at a directory prefix and end with a trailing slash. For example:
+
+```gitconfig
+[includeIf "gitdir:~/Code/github.com/your-work-org/"]
+  path = ~/.config/git/work
+
+[includeIf "gitdir:~/Code/github.com/your-personal-account/"]
+  path = ~/.config/git/personal
+```
+
+That form matches repositories whose `.git` directories live under those folders. Using a narrower pattern can fail to match nested repositories the way you expect.
 
 ## Notes
 

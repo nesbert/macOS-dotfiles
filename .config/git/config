@@ -2,6 +2,8 @@
   name = Monkey D. Luffy
   email = your-personal-email@example.com
 
+# Match any repository whose .git directory lives under this folder.
+# Keep the trailing slash so Git treats this as a directory prefix.
 [includeIf "gitdir:~/Code/github.com/StrawHatPirates/"]
   path = ~/.config/git/work
 

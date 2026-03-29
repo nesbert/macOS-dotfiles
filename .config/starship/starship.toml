@@ -12,6 +12,7 @@ format = """
 $directory\
 $git_branch\
 $git_status\
+${custom.git_identity}\
 $fill\
 $python\
 $lua\
@@ -51,6 +52,12 @@ format = '[on](white) [$symbol$branch ]($style)'
 [git_status]
 style = 'fg:red'
 format = '([$all_status$ahead_behind]($style) )'
+
+[custom.git_identity]
+command = "git config --get user.email 2>/dev/null"
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+style = 'fg:yellow'
+format = '[as $output ]($style)'
 
 [fill]
 symbol = ' '

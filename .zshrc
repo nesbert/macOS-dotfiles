@@ -100,6 +100,15 @@ my-weather-here() {
   curl "wttr.in/${coords}"
 }
 
+# Show the active git identity for the current repository.
+whoami-git() {
+  local name email
+
+  name=$(git config --get user.name 2>/dev/null) || return 1
+  email=$(git config --get user.email 2>/dev/null) || return 1
+  printf '%s <%s>\n' "$name" "$email"
+}
+
 ################################################################################
 # Misc
 ################################################################################
@@ -108,6 +117,7 @@ if [[ -o interactive && "${TERM:-}" != dumb ]]; then
   # Start-up Information
   command -v fastfetch >/dev/null && fastfetch
   # Initialize Starship and fzf
+  export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
   command -v starship >/dev/null && eval "$(starship init zsh)"
   command -v fzf >/dev/null && [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 fi
