@@ -1,0 +1,10 @@
+# Route repositories to the right identity file for this machine.
+# Keep the trailing slash so Git treats this as a directory prefix.
+[includeIf "gitdir:~/Code/github.com/your-personal-account/"]
+  path = ~/.config/git/personal.local
+
+[includeIf "gitdir:~/Code/github.com/your-work-org/"]
+  path = ~/.config/git/work.local
+
+[includeIf "gitdir:~/Code/github.com/your-school-org/"]
+  path = ~/.config/git/school.local
