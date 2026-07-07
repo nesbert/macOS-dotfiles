@@ -5,7 +5,7 @@
 ################################################################################
 # Appearance
 ################################################################################
-background-opacity = 0.66
+background-opacity = 0.82
 background-blur = 90
 
 font-family = "JetBrainsMono Nerd Font"
@@ -63,4 +63,3 @@ mouse-scroll-multiplier = 2
 # Ctrl + W         # delete word
 # Ctrl + U         # delete to start
 # Ctrl + K         # delete to end
-

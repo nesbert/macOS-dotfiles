@@ -50,6 +50,39 @@ The intended workflow is:
 2. Pull this repository to apply terminal, shell, prompt, and related app configuration.
 3. Optionally wire this repo into [macOS-setup](https://github.com/nesbert/macOS-setup/) as a submodule so setup and configuration stay versioned independently.
 
+## Ghostty Shader Dependencies
+
+The Ghostty config in this repo references shader files that live in external repositories. To enable those shader entries fully, clone the source repos adjacent to `macOS-dotfiles` so the checked-in symlinks under `.config/ghostty/` resolve correctly.
+
+Expected layout:
+
+```text
+~/Code/github.com/nesbert/macOS-dotfiles
+~/Code/github.com/0xhckr/ghostty-shaders
+~/Code/github.com/KroneCorylus/ghostty-shader-playground
+~/Code/github.com/linkarzu/dotfiles-latest
+```
+
+The Ghostty symlinks in `.config/ghostty/` are set up like this:
+
+```text
+shaders-0xhckr       -> ../../../../0xhckr/ghostty-shaders
+shaders-KroneCorylus -> ../../../../KroneCorylus/ghostty-shader-playground/public/shaders
+shaders-linkarzu     -> ../../../../linkarzu/dotfiles-latest/ghostty/shaders
+```
+
+Bootstrap the dependencies with:
+
+```sh
+cd ~/Code/github.com
+mkdir -p 0xhckr KroneCorylus linkarzu
+git clone git@github.com:0xhckr/ghostty-shaders.git 0xhckr/ghostty-shaders
+git clone git@github.com:KroneCorylus/ghostty-shader-playground.git KroneCorylus/ghostty-shader-playground
+git clone git@github.com:linkarzu/dotfiles-latest.git linkarzu/dotfiles-latest
+```
+
+If those repositories are missing, Ghostty still loads the main config, but any `custom-shader` entries pointing at those symlinked directories will not resolve.
+
 ## Included Templates
 
 This repo now includes portable templates for:
