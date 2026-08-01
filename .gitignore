@@ -1,3 +1,5 @@
+gh/
 github-copilot/
+.config/git/config
 .config/git/*.local
 .ssh/config.local
