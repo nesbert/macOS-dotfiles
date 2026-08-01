@@ -74,7 +74,8 @@ shaders-linkarzu     -> ../../../../linkarzu/dotfiles-latest/ghostty/shaders
 Bootstrap the dependencies with:
 
 ```sh
-cd ~/Code/github.com
+mkdir ~/Code/github.com
+cd !$
 mkdir -p 0xhckr KroneCorylus linkarzu
 git clone git@github.com:0xhckr/ghostty-shaders.git 0xhckr/ghostty-shaders
 git clone git@github.com:KroneCorylus/ghostty-shader-playground.git KroneCorylus/ghostty-shader-playground
